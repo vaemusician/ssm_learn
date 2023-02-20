@@ -13,7 +13,17 @@ public class User {
 
     private String emil;
 
+    public User() {
+    }
 
+    public User(Integer id, String username, String password, Integer age, String gender, String emil) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.gender = gender;
+        this.emil = emil;
+    }
 }
 
 
