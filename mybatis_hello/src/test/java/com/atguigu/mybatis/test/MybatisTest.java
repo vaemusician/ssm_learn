@@ -1,6 +1,7 @@
 package com.atguigu.mybatis.test;
 
 import com.atguigu.mybatis.mapper.UserMapper;
+import com.atguigu.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,16 +20,28 @@ public class MybatisTest {
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         //获取SqlSessionFactory对象
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
-        //获取Sql的会话对象SqlSession，是MyBatis提供的操作数据库的对象。
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        //获取Sql的会话对象SqlSession(不会自动提交事务)，是MyBatis提供的操作数据库的对象。
+        // SqlSession sqlSession = sqlSessionFactory.openSession();
+        //获取Sql的会话对象SqlSession(会自动提交事务)，是MyBatis提供的操作数据库的对象。
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
         //获取UserMapper的代理实现类对象
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         //调用mapper接口中的方法实现添加用户信息的功能
         int result = mapper.insertUser();
+        //提供sql以及唯一标识找到sql并执行，唯一标识是namespace.sqlId。
+        //int result = sqlSession.insert("com.atguigu.mybatis.mapper.UserMapper.insertUser");
         System.out.println("结果："+result);
         //提交事务
-        sqlSession.commit();
+        // sqlSession.commit();
         //关闭sqlSession
+        sqlSession.close();
+    }
+
+    @Test
+    public void updateUser() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateUser();
         sqlSession.close();
     }
 }
