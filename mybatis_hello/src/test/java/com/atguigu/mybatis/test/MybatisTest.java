@@ -43,5 +43,6 @@ public class MybatisTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         mapper.updateUser();
         sqlSession.close();
+        //今晚学习
     }
 }
