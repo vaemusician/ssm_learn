@@ -1,6 +1,7 @@
 package com.atguigu.mybatis.test;
 
 import com.atguigu.mybatis.mapper.UserMapper;
+import com.atguigu.mybatis.pojo.User;
 import com.atguigu.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -38,11 +39,28 @@ public class MybatisTest {
     }
 
     @Test
-    public void updateUser() throws IOException {
+    public void testUpdate() throws IOException {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         mapper.updateUser();
         sqlSession.close();
         //0309今晚学习
+    }
+
+    @Test
+    public void testDelete() throws IOException {
+        SqlSession sqlSession= SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.deleteUser();
+        sqlSession.close();
+
+    }
+
+    @Test
+    public void testGetUserById() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.getUserById();
+        System.out.println(user);
     }
 }

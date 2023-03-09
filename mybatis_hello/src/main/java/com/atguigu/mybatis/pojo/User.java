@@ -11,18 +11,18 @@ public class User {
 
     private String gender;
 
-    private String emil;
+    private String email;
 
     public User() {
     }
 
-    public User(Integer id, String username, String password, Integer age, String gender, String emil) {
+    public User(Integer id, String username, String password, Integer age, String gender, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.age = age;
         this.gender = gender;
-        this.emil = emil;
+        this.email = email;
     }
 
     public Integer getId() {
@@ -65,12 +65,12 @@ public class User {
         this.gender = gender;
     }
 
-    public String getEmil() {
-        return emil;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmil(String emil) {
-        this.emil = emil;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
-                ", emil='" + emil + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
