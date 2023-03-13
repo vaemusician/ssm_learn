@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class MybatisTest {
     @Test
@@ -62,5 +63,13 @@ public class MybatisTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User user = mapper.getUserById();
         System.out.println(user);
+    }
+
+    @Test
+    public void testGetAllUser() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> list = mapper.getAllUser();
+        list.forEach(System.out::println);
     }
 }

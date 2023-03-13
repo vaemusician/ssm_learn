@@ -34,6 +34,9 @@
     </select>
 
     <!-- List<User> getAllUser();-->
+    <select id="getAllUser" resultType="com.atguigu.mybatis.pojo.User">
+        select * from t_user
+    </select>
 
 
 
