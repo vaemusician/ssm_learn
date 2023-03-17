@@ -70,6 +70,8 @@ public class MybatisTest {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<User> list = mapper.getAllUser();
-        list.forEach(System.out::println);
+        for (User s:list){
+            System.out.println(s);
+        }
     }
 }
