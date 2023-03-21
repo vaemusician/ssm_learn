@@ -7,8 +7,13 @@
 
     <!--User getUserByUsername(String username);-->
     <select id="getUserByUsername" resultType="User">
-        select * from t_user where 1=1 and username = #{username}
+        <!--select * from t_user where 1=1 and username = #{username}-->
+        select * from t_user where 1=1 and username = '${username}'
     </select>
 
-
+    <!--User checkLogin(String username, String password);-->
+    <select id="checkLogin" resultType="User">
+        <!--select * from t_user where 1=1 and username = #{arg0} and password = #{arg1}-->
+        select * from t_user where 1=1 and username = '${arg0}' and password = '${arg1}'
+    </select>
 </mapper>

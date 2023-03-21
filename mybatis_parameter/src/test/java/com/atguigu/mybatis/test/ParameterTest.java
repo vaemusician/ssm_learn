@@ -15,6 +15,13 @@ public class ParameterTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User user = mapper.getUserByUsername("admin0306");
         System.out.println(user);
+    }
 
+    @Test
+    public void testCheckLogin() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = mapper.checkLogin("admin0306", "123456");
+        System.out.println(user);
     }
 }
