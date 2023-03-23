@@ -19,4 +19,7 @@ public interface SelectMapper {
     // 查询所有的用户
     List<User> getAllUser();
 
+    // 查询用户数
+    Integer getCountUser();
+
 }
