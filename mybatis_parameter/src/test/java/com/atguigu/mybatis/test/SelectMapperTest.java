@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 public class SelectMapperTest {
     @Test
@@ -35,6 +36,14 @@ public class SelectMapperTest {
         System.out.println(int_1);
     }
 
+    @Test
+    public void testGetUserByIdToMap() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        Map<String, Object> map = mapper.getUserByIdToMap(1);
+        // {password=123, gender=男, id=1, age=23, email=123456@qq.com, username=root}
+        System.out.println(map);
+    }
 
-    
+
 }

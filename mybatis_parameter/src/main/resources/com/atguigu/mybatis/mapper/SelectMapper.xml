@@ -15,7 +15,19 @@
     </select>
 
     <!--Integer getCountUser();-->
+    <!--MyBatis中为java中常用的数据类型设置了类型别名
+        Integer:Integer,int
+        int:_int,_integer
+        Map:map
+        String:string
+        -->
     <select id="getCountUser" resultType="Integer">
         select count(1) from t_user
     </select>
+
+    <!--Map<String, Object> getUserByIdToMap();-->
+    <select id="getUserByIdToMap" resultType="map">
+        select * from t_user where 1=1 and id = #{id}
+    </select>
+
 </mapper>
