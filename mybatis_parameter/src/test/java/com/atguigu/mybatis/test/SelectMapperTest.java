@@ -45,5 +45,21 @@ public class SelectMapperTest {
         System.out.println(map);
     }
 
+    @Test
+    public void testGetAllUserToMap() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
+        // List<Map<String, Object>> list = mapper.getAllUserToMap();
+        // System.out.println(list);
+
+        Map<String, Object> map = mapper.getAllUserToMap();
+        System.out.println(map);
+        // {
+        //   1={password=123, gender=男, id=1, age=23, email=123456@qq.com, username=root}
+        //  ,2={password=123456, gender=女, id=2, age=33, email=123456@qq.com, username=admin}
+        //  }
+
+
+    }
 
 }
