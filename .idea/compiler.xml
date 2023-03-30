@@ -11,6 +11,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="mybatis_hello" />
         <module name="mybatis_parameter" />
+        <module name="mybatis_resultMap" />
       </profile>
     </annotationProcessing>
   </component>
