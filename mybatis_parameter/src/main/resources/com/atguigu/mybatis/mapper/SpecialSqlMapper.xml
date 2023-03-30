@@ -5,4 +5,9 @@
 
 <mapper namespace="com.atguigu.mybatis.mapper.SpecialSqlMapper">
 
+    <!--List<User> getUserByLike(@Param("mohu") String mohu);-->
+    <select id="getUserByLike" resultType="User">
+        select * from t_user where 1=1 and username like '%${mohu}%'
+    </select>
+
 </mapper>
